@@ -1,0 +1,45 @@
+{
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#007AFF",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/homepage/homepage",
+        "text": "首页",
+        "iconPath": "pages/res/icons/items.png",
+        "selectedIconPath": "pages/res/icons/items_checked.png"
+      },
+      {
+        "pagePath": "pages/userpage/userpage",
+        "text": "我的",
+        "iconPath": "pages/res/icons/user.png",
+        "selectedIconPath": "pages/res/icons/user_checked.png"
+      }
+    ]
+  },
+  "pages": [
+    "pages/homepage/homepage",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/userpage/userpage",
+    "pages/tools/qrcode",
+    "pages/tools/random",
+    "pages/tools/code",
+    "pages/tools/convert",
+    "pages/tools/colorring",
+    "pages/tools/regex",
+    "pages/userpage/menupage/about",
+    "pages/userpage/usersetting"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "TOOLS",
+    "navigationBarBackgroundColor": "#ffffff"
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

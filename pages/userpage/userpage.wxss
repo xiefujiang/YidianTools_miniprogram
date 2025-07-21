@@ -1,0 +1,86 @@
+/* pages/userpage/userpage.wxss */
+page{
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+page::before{
+    content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5f5;
+  z-index: -1;
+}
+.container-Topbar{
+    position: fixed;
+    top: 0;
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    height: 300rpx;
+    border-bottom: rgba(0,0,0,0.3) solid 1rpx;
+}
+.fixed-userInfo-container{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    flex-direction: column;
+}
+.userIcon-container{
+    border-radius: 10rpx;
+    height: 10vh;
+    width: 10vh;
+    background-color: #ffffff;
+    overflow: hidden;
+    margin-bottom: 10rpx;
+}
+.userIcon{
+    max-width: 100%;
+    max-height: 100%;
+}
+.userSetting-btn-container{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+}
+.Setting-btn{
+    margin: 30rpx;
+}
+.list-container{
+    margin-top: 300rpx;
+    display: flex;
+    flex-direction: column;
+    height:70vh;
+}
+.list_placeholder{
+    height: 60rpx;
+    display: flex;
+}
+.menu-item {
+    height: 100rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%-20rpx;
+    padding: 0 30rpx;
+    background-color: #ffffff;
+    margin:10rpx;
+    border-radius: 10rpx;
+}
+.menu-text {
+    margin-left: 70rpx;
+    font-size: 30rpx;
+    color: rgba(0,0,0,0.8);
+}
+.menu-text-arrow {
+    font-size: 30rpx;
+    margin-right: 100rpx;
+}

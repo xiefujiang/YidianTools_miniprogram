@@ -1,0 +1,29 @@
+<!-- pages/tools/qrcode.wxml -->
+<view class="container">
+    <view class="title">二维码生成器</view>
+
+    <!-- 输入区域 -->
+    <view class="input-area">
+        <textarea placeholder="请输入要生成二维码的内容（网址、文本等）" value="{{inputValue}}" bindinput="onInputChange" maxlength="200" auto-height placeholder-class="placeholder-style"></textarea>
+    </view>
+
+    <!-- 生成按钮 -->
+    <button class="generate-btn" bindtap="generateQrcode" disabled="{{!inputValue}}">
+        生成二维码
+    </button>
+
+    <!-- 二维码展示区域 -->
+    <view class="qrcode-container" wx:if="{{showQrcode}}">
+        <canvas canvas-id="myQrcode" class="qrcode-canvas" bindtap="preview"></canvas>
+
+        <!-- 保存按钮 -->
+        <button class="save-btn" bindtap="saveQrcode" wx:if="{{qrcodeUrl}}">
+            保存到相册
+        </button>
+    </view>
+
+    <!-- 提示信息 -->
+    <view class="tips" wx:if="{{!showQrcode}}">
+        <text>输入内容并点击生成按钮</text>
+    </view>
+</view>

@@ -1,0 +1,13 @@
+<!-- pages/homepage/homepage.wxml -->
+<view class="scrollingTopBar">
+    <image src="https://w1ldptr.xyz/pics/1.jpg"></image>
+</view>
+
+<view class="grid-container">
+    <view class="grid-item" wx:for="{{gridData}}" wx:key="id" bindtap="navigateToPage" data-url="{{item.url}}">
+        <view class="icon-container">
+            <image src="{{item.iconUrl}}" mode="aspectFit" class="grid-icon" />
+        </view>
+        <view class="grid-text">{{item.text}}</view>
+    </view>
+</view>
