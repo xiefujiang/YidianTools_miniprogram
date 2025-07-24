@@ -3,25 +3,50 @@
     padding: 30rpx;
     display: flex;
     flex-direction: column;
-    align-items: center;
     background-color: #f5f5f5;
     min-height: 100vh;
     box-sizing: border-box;
-  }
-  
-  .title {
+}
+
+.title {
     font-size: 36rpx;
     font-weight: bold;
-    margin: 40rpx 0;
+    margin: 30rpx 0 40rpx;
     color: #333;
-  }
-  
-  .input-area {
+    text-align: center;
+}
+
+/* 功能按钮组 */
+.btn-group {
+    display: flex;
+    width: 100%;
+    gap: 20rpx;
+    margin-bottom: 30rpx;
+}
+
+.function-btn {
+    flex: 1;
+    height: 90rpx;
+    line-height: 55rpx;
+    font-size: 32rpx;
+    border-radius: 12rpx;
+    background-color: #fff;
+    color: #333;
+    border: 1rpx solid #eee;
+}
+
+.function-btn.active {
+    background-color: #07c160;
+    color: #fff;
+    border-color: #07c160;
+}
+
+.input-area {
     width: 100%;
     margin-bottom: 30rpx;
-  }
-  
-  textarea {
+}
+
+textarea {
     width: 100%;
     min-height: 160rpx;
     padding: 20rpx;
@@ -31,58 +56,96 @@
     border: 1rpx solid #eee;
     box-sizing: border-box;
     line-height: 1.5;
-  }
-  
-  .placeholder-style {
+}
+
+.placeholder-style {
     color: #999;
-  }
-  
-  .generate-btn {
-    width: 100%;
-    height: 90rpx;
-    line-height: 60rpx;
-    background-color: #07c160;
-    color: #fff;
-    font-size: 32rpx;
-    border-radius: 45rpx;
-    margin: 20rpx 0 40rpx;
-    text-align: center;
-  }
-  
-  .generate-btn:disabled {
-    background-color: #ccc;
-  }
-  
-  .qrcode-container {
+}
+
+.result-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 20rpx;
     width: 100%;
-  }
-  
-  .qrcode-canvas {
+    height: 900rpx;
+    padding: 30rpx;
+    background-color: #fff;
+    border-radius: 12rpx;
+    box-sizing: border-box;
+}
+
+.result-title {
+    font-size: 30rpx;
+    color: #666;
+    margin-bottom: 20rpx;
+    align-self: flex-start;
+}
+
+.qrcode-canvas {
     width: 70vw;
     height: 70vw;
     background-color: #fff;
     border-radius: 12rpx;
     box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.08);
-  }
-  
-  .save-btn {
-    width: 50%;
+}
+
+.operation-btns {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 15rpx; /* 两个按钮之间的间距 */
+    margin-top: 120rpx;
+    height: 88rpx; /* 固定高度 */
+}
+
+.operate-btn {
+    width: 45%; /* 每个按钮占45%宽度，留出间距 */
     height: 88rpx;
-    line-height: 60rpx;
+    line-height: 55rpx;
     background-color: #007aff;
     color: #fff;
     font-size: 30rpx;
     border-radius: 44rpx;
-    margin-top: 40rpx;
     text-align: center;
-  }
-  
-  .tips {
+}
+
+.operate-btn:nth-child(2) {
+    background-color: #ff9500;
+}
+
+.placeholder-btn-group {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 15rpx;
+}
+
+.placeholder-btn {
+    width: 45%;
+    height: 88rpx;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.tips-container {
+    min-height: calc(70vw + 88rpx + 50rpx); /* 与生成后的二维码区域总高度一致 */
+    justify-content: space-between; /* 让提示文字和占位按钮分别在上下位置 */
+}
+
+.tips-content {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tips {
     margin-top: 40rpx;
     font-size: 26rpx;
     color: #666;
-  }
+    text-align: center;
+    padding: 30rpx;
+    background-color: #fff;
+    border-radius: 12rpx;
+}

@@ -1,26 +1,53 @@
 <!-- pages/tools/qrcode.wxml -->
 <view class="container">
-    <view class="title">二维码生成器</view>
+
+    <!-- 功能按钮区域 -->
+    <view class="btn-group">
+        <button class="function-btn active" bindtap="generateQrcode" disabled="{{!inputValue}}">
+            生成二维码
+        </button>
+        <button class="function-btn" bindtap="scanQrcode">
+            扫描二维码
+        </button>
+    </view>
 
     <!-- 输入区域 -->
     <view class="input-area">
         <textarea placeholder="请输入要生成二维码的内容（网址、文本等）" value="{{inputValue}}" bindinput="onInputChange" maxlength="200" auto-height placeholder-class="placeholder-style"></textarea>
     </view>
 
-    <!-- 生成按钮 -->
-    <button class="generate-btn" bindtap="generateQrcode" disabled="{{!inputValue}}">
-        生成二维码
-    </button>
-
     <!-- 二维码展示区域 -->
-    <view class="qrcode-container" wx:if="{{showQrcode}}">
-        <canvas canvas-id="myQrcode" class="qrcode-canvas" bindtap="preview"></canvas>
+<view class="result-container" wx:if="{{showQrcode}}">
+    <view class="result-title">生成结果</view>
+    <canvas canvas-id="myQrcode" class="qrcode-canvas" bindtap="preview"></canvas>
 
-        <!-- 保存按钮 -->
-        <button class="save-btn" bindtap="saveQrcode" wx:if="{{qrcodeUrl}}">
-            保存到相册
-        </button>
+    <!-- 操作按钮区域（始终显示，使用占位保持位置） -->
+    <view class="operation-btns">
+    <button class="operate-btn" bindtap="saveQrcode" wx:if="{{qrcodeUrl}}">
+        保存到相册
+    </button>
+    <button class="operate-btn" bindtap="collectQrcode" wx:if="{{qrcodeUrl}}">
+        收藏结果
+    </button>
+    <!-- 占位按钮组（未生成二维码时显示） -->
+    <view class="placeholder-btn-group" wx:if="{{!qrcodeUrl}}">
+        <view class="placeholder-btn"></view>
+        <view class="placeholder-btn"></view>
     </view>
+</view>
+</view>
+<!-- 未生成二维码时的区域（保持与生成区域相同结构，确保按钮位置一致） -->
+<view class="result-container tips-container" wx:if="{{!showQrcode}}">
+    <view class="result-title">提示</view>
+    <view class="tips-content">
+        <text>输入内容并点击生成按钮</text>
+    </view>
+    
+    <!-- 空白占位按钮区域，与生成后的按钮区域尺寸一致 -->
+    <view class="operation-btns">
+        <view class="operate-btn placeholder-btn"></view>
+    </view>
+</view>
 
     <!-- 提示信息 -->
     <view class="tips" wx:if="{{!showQrcode}}">

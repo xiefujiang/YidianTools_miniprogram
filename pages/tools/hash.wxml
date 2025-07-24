@@ -1,0 +1,24 @@
+<view class="container">
+    <view class="title">哈希加密工具</view>
+
+    <view class="input-area">
+        <textarea placeholder="请输入要加密的字符串" value="{{inputText}}" bindinput="onInputChange" class="input-text"></textarea>
+    </view>
+
+    <view class="algorithm-selector">
+        <picker mode="selector" range="{{algorithms}}" range-key="name" value="{{algorithmIndex}}" bindchange="onAlgorithmChange">
+            <view class="picker">
+                当前算法: {{algorithms[algorithmIndex].name}}
+            </view>
+        </picker>
+    </view>
+
+    <button type="primary" bindtap="onEncrypt" class="encrypt-btn">加密</button>
+
+    <view class="result-area" wx:if="{{result}}">
+        <view class="result-title">加密结果:</view>
+        <view class="result-text">{{result}}</view>
+        <button bindtap="onCopy" class="copy-btn">复制结果</button>
+        <button type="primary" bindtap="onSave" class="save-btn">收藏结果</button>
+    </view>
+</view>

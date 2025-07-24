@@ -31,7 +31,12 @@
     "pages/tools/colorring",
     "pages/tools/regex",
     "pages/userpage/menupage/about",
-    "pages/userpage/usersetting"
+    "pages/userpage/usersetting",
+    "pages/userpage/menupage/history",
+    "pages/userpage/menupage/setting",
+    "pages/userpage/menupage/contact",
+    "pages/tools/base64",
+    "pages/tools/hash"
   ],
   "window": {
     "navigationBarTextStyle": "black",

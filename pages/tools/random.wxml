@@ -1,2 +1,79 @@
-<!--pages/tools/random.wxml-->
-<text>pages/tools/random.wxml</text>
+<view class="container">
+    <view class="content">
+        <view class="section">
+            <view class="section-title">
+                <i class="fas fa-check-square"></i>
+                <text>字符类型</text>
+            </view>
+
+            <view class="options-grid">
+                <view class="option-item {{config.numbers ? 'active' : ''}}" bindtap="toggleOption" data-option="numbers">
+                    <checkbox value="numbers" checked="{{config.numbers}}" />
+                    <i class="fas fa-hashtag"></i>
+                    <label>数字 (0-9)</label>
+                </view>
+
+                <view class="option-item {{config.lowercase ? 'active' : ''}}" bindtap="toggleOption" data-option="lowercase">
+                    <checkbox value="lowercase" checked="{{config.lowercase}}" />
+                    <i class="fas fa-font"></i>
+                    <label>小写字母 (a-z)</label>
+                </view>
+
+                <view class="option-item {{config.uppercase ? 'active' : ''}}" bindtap="toggleOption" data-option="uppercase">
+                    <checkbox value="uppercase" checked="{{config.uppercase}}" />
+                    <i class="fas fa-text-height"></i>
+                    <label>大写字母 (A-Z)</label>
+                </view>
+
+                <view class="option-item {{config.symbols ? 'active' : ''}}" bindtap="toggleOption" data-option="symbols">
+                    <checkbox value="symbols" checked="{{config.symbols}}" />
+                    <i class="fas fa-exclamation"></i>
+                    <label>特殊符号</label>
+                </view>
+
+                <view class="option-item {{config.custom ? 'active' : ''}}" bindtap="toggleOption" data-option="custom">
+                    <checkbox value="custom" checked="{{config.custom}}" />
+                    <i class="fas fa-user-edit"></i>
+                    <label>自定义</label>
+                </view>
+            </view>
+
+            <view class="custom-section">
+                <label for="customChars"><i class="fas fa-pen"></i> 自定义字符集</label>
+                <input type="text" id="customChars" placeholder="输入自定义字符（如: ABC123!@#）" value="{{config.customChars}}" bindinput="onCustomCharsInput" />
+                <text class="symbols-hint">特殊符号包括：!@#$%^&*()_+-=[]{}|;:,.&lt;&gt;?~</text>
+            </view>
+        </view>
+
+        <view class="section">
+            <view class="section-title">
+                <i class="fas fa-ruler"></i>
+                <text>长度控制</text>
+            </view>
+
+            <view class="length-control">
+                <text style="margin-left: 10rpx;">长度:</text>
+                <slider min="4" max="64" value="{{config.length}}" class="length-slider" bindchange="onLengthChange" />
+                <input type="number" class="length-input" value="{{config.length}}" bindblur="onLengthConfirm" bindconfirm="onLengthConfirm" min="4" max="64" />
+            </view>
+        </view>
+        <view class="section">
+            <view class="section-title">
+                <i class="fas fa-lock"></i>
+                <text>生成结果</text>
+            </view>
+
+            <textarea class="result-text" placeholder="生成的随机字符串将显示在这里..." value="{{resultText}}" bindinput="onResultTextChange"></textarea>
+            <view class="char-count">{{resultText.length}} 字符</view>
+        </view>
+
+        <view class="buttons">
+            <button class="btn generate-btn" bindtap="generateRandomString">
+                <i class="fas fa-bolt"></i> 生成字符串
+            </button>
+            <button class="btn save-btn" bindtap="saveResult" style="background: {{saveBtnBg}}; color: {{saveBtnColor}}; border-color: {{saveBtnBorderColor}}">
+                <i class="fas {{saveBtnIcon}}"></i> {{saveBtnText}}
+            </button>
+        </view>
+    </view>
+</view>

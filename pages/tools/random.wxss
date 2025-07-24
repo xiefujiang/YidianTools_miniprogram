@@ -1,1 +1,244 @@
-/* pages/tools/random.wxss */
+.container {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    padding: 16rpx;
+}
+
+.content {
+    width:700rpx;
+    background: #ffffff;
+    border-radius: 16rpx;
+    padding: 24rpx;
+    box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.section {
+    margin-bottom: 24rpx;
+    background: #f8f9fa;
+    border-radius: 12rpx;
+    padding: 20rpx;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16rpx;
+    color: #333333;
+    font-weight: 600;
+    font-size: 28rpx;
+}
+
+.section-title i {
+    margin-right: 10rpx;
+    font-size: 24rpx;
+    color: #4776E6;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14rpx;
+}
+
+.option-item {
+    display: flex;
+    align-items: center;
+    padding: 14rpx 16rpx;
+    background: white;
+    border-radius: 8rpx;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1rpx solid #e9ecef;
+}
+
+.option-item.active {
+    background: #eef7ff;
+    border-color: #4776E6;
+}
+
+.option-item checkbox {
+    margin-right: 40rpx;
+    width: 20rpx;
+    height: 20rpx;
+    vertical-align: middle;
+    margin-top: 0;
+    margin-bottom: 0;
+    position: relative;
+    top: -17rpx;
+}
+
+
+.option-item checkbox .wx-checkbox-input {
+    width: 20rpx;
+    height: 20rpx;
+    border-radius: 5rpx;
+    border-color: #ccc;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.option-item label {
+    font-size: 24rpx;
+    flex: 1;
+    color: #555555;
+}
+
+/* 长度控制容器样式（确保整体对齐） */
+.length-control {
+    display: flex;
+    align-items: center;
+    /* 滑块与文字垂直居中 */
+    padding: 15rpx 0;
+}
+
+.length-control text {
+    font-weight: 500;
+    color: #555;
+    min-width: 60rpx;
+    font-size: 24rpx;
+}
+
+/* 滑块容器整体样式 */
+.length-slider {
+    position: relative;
+    top: -10rpx;
+    flex: 1;
+    height: 6rpx;
+    /* 统一轨道总高度 */
+    margin: 0 10rpx;
+    /* 预留左右空间，避免被截断 */
+}
+
+/* 滑块已选择部分轨道样式（关键：覆盖默认样式） */
+.length-slider::after {
+    height: 6rpx;
+    /* 与整体高度一致，避免出现第二条线 */
+    background-color: #4776E6;
+    /* 已选择部分颜色 */
+    border-radius: 3rpx;
+}
+
+/* 滑块按钮样式（可选优化） */
+.length-slider .wx-slider-thumb {
+    width: 24rpx;
+    height: 24rpx;
+    margin-top: -9rpx;
+    /* 居中对齐轨道 */
+    background: #4776E6;
+    border: none;
+    box-shadow: 0 2rpx 8rpx rgba(71, 118, 230, 0.5);
+}
+
+.length-input {
+    width: 70rpx;
+    height: 40rpx;
+    font-weight: 600;
+    font-size: 24rpx;
+    text-align: center;
+    background-color: inherit;
+    /* 与外部背景色一致 */
+    border: 1rpx solid #ddd;
+    border-radius: 6rpx;
+    margin-left: 12rpx;
+}
+
+
+.custom-section {
+    background: #f0f7ff;
+    border-radius: 10rpx;
+    padding: 14rpx;
+    margin-top: 14rpx;
+    border: 1rpx dashed #a0c4ff;
+}
+
+.custom-section label {
+    display: block;
+    margin-bottom: 8rpx;
+    font-size: 22rpx;
+    color: #4776E6;
+    font-weight: 500;
+}
+
+.custom-section input {
+    width: 600rpx;
+    padding: 12rpx 14rpx;
+    border-radius: 8rpx;
+    border: 1rpx solid #dee2e6;
+    font-size: 24rpx;
+}
+
+.result-text {
+    width: 630rpx;
+    min-height: 200rpx;
+    padding: 16rpx;
+    font-size: 26rpx;
+    border-radius: 10rpx;
+    border: 1rpx solid #dee2e6;
+    background: white;
+}
+
+.char-count {
+    text-align: right;
+    background: rgba(71, 118, 230, 0.9);
+    color: white;
+    padding: 3rpx 10rpx;
+    border-radius: 20rpx;
+    font-size: 20rpx;
+    margin-top: 8rpx;
+    display: inline-block;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: 45% 45%;
+    gap: 50rpx;
+    margin-top: 16rpx;
+    max-width: 700rpx;
+}
+
+.btn {
+    max-width: 330rpx;
+    padding: 16rpx;
+    border: none;
+    border-radius: 8rpx;
+    font-size: 26rpx;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+}
+
+.btn i {
+    margin-right: 8rpx;
+}
+
+.generate-btn {
+    background: #4776E6;
+    color: white;
+}
+
+.save-btn {
+    background: white;
+    color: #4776E6;
+    border: 1rpx solid #dee2e6;
+}
+
+.symbols-hint {
+    font-size: 20rpx;
+    color: #6c757d;
+    margin-top: 8rpx;
+    line-height: 1.4;
+    display: block;
+}
+
+/* 清除浮动 */
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}

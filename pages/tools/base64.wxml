@@ -1,0 +1,99 @@
+<!--pages/tools/base64.wxml-->
+<view class="container {{darkMode ? 'dark' : ''}}">
+  <!-- 转换类型选择器 -->
+  <view class="converter-header">
+    <picker mode="selector" value="{{converterIndex}}" range="{{converterTypes}}" bindchange="onConverterChange">
+      <view class="picker-view">
+        {{converterTypes[converterIndex]}}
+        <icon type="arrowdown" size="16" class="arrow-icon"></icon>
+      </view>
+    </picker>
+    
+    <button class="reverse-btn" bindtap="toggleConversionType">
+      {{isEncoding ? '解码' : '编码'}}
+    </button>
+  </view>
+  
+  <!-- 格式说明 -->
+  <view class="format-description">
+    {{currentDescription}}
+  </view>
+  
+  <!-- 输入区域 -->
+  <view class="input-section">
+    <div class="section-title">
+  <text>{{isEncoding ? '原始文本' : '编码文本'}}</text>
+  <div class="title-actions">
+    <button class="clear-btn" bindtap="clearInput">清空</button>
+    <button class="tool-btn" bindtap="pasteInput">粘贴</button>
+  </div>
+</div>
+    
+    <!-- 特殊处理：Base64图片上传 -->
+    <view wx:if="{{currentConverter === 'base64' && isEncoding}}">
+      <button class="upload-btn" bindtap="chooseImage">上传图片</button>
+      <image src="{{imagePath}}" mode="widthFix" class="preview-image" wx:if="{{imagePath}}"></image>
+    </view>
+    
+    <!-- 特殊处理：Base64图片预览 -->
+    <view wx:if="{{currentConverter === 'base64' && !isEncoding && output}}">
+      <view class="preview-label">图片预览：</view>
+      <image src="data:image/png;base64,{{output}}" mode="widthFix" class="preview-image"></image>
+      <button class="save-image-btn" bindtap="saveImage">保存图片到相册</button>
+    </view>
+    
+    <!-- 文本输入框 -->
+    <textarea 
+      class="input-textarea" 
+      placeholder="{{isEncoding ? '请输入要编码的内容' : '请输入要解码的内容'}}"
+      value="{{input}}"
+      bindinput="onInputChange"
+      bindconfirm="convertText"
+    ></textarea>
+  </view>
+  
+  <!-- 转换按钮 (仅在非实时模式显示) -->
+  <button 
+    class="convert-btn" 
+    bindtap="convertText"
+    wx:if="{{!realtimeConversion}}"
+  >
+    {{isEncoding ? '执行编码' : '执行解码'}}
+  </button>
+  
+  <!-- 输出区域 -->
+  <!-- wx:if="{{output !== null && output !== ''}}" -->
+  <view class="output-section">
+    <div class="section-title">
+  <text>{{isEncoding ? '编码结果' : '解码结果'}}</text>
+  <!-- 新增按钮容器，统一控制按钮组布局 -->
+  <div class="title-actions" wx:if="{{output !== null && output !== ''}}">
+    <button class="clear-btn" bindtap="clearOutput">清空</button>
+    <button class="tool-btn" bindtap="copyResult">复制结果</button>
+  </div>
+</div>
+    
+    <view class="output-content">{{output}}</view>
+  </view>
+  
+  <!-- 错误提示 -->
+  <view class="error-message" wx:if="{{errorMessage}}">
+    {{errorMessage}}
+  </view>
+  
+  <!-- 批量转换和文件导入 -->
+  <view class="batch-tools" wx:if="{{showBatchTools}}">
+    <button class="batch-btn" bindtap="toggleBatchMode">
+      {{isBatchMode ? '退出批量模式' : '批量转换'}}
+    </button>
+    <button class="file-btn" bindtap="chooseTextFile">
+      导入TXT文件
+    </button>
+  </view>
+  
+  <!-- 分享按钮 -->
+  <!-- wx:if="{{output}}" -->
+  <button class="share-btn" open-type="share" disabled="{{!output || output.length === 0}}">
+    分享结果
+  </button>
+</view>

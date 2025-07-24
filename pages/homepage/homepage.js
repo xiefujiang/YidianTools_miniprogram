@@ -12,10 +12,10 @@ Page({
         {id:4,iconUrl:'/pages/res/icons/convert.png', text:'进制转换', url:'/pages/tools/convert'},
         {id:5,iconUrl:'/pages/res/icons/colorring.png', text:'RGB颜色代码', url:'/pages/tools/colorring'},
         {id:6,iconUrl:'/pages/res/icons/regex.png', text:'正则表达式', url:'/pages/tools/regex'},
-        {id:7,iconUrl:'/pages/res/pics/2.jpg', text:'pic7', url:'/pages/tools/default'},
-        {id:8,iconUrl:'/pages/res/pics/2.jpg', text:'pic8', url:'/pages/tools/default'},
+        {id:7,iconUrl:'/pages/res/icons/base64.png', text:'编码转换', url:'/pages/tools/base64'},
+        {id:8,iconUrl:'/pages/res/icons/hash.png', text:'哈希加密', url:'/pages/tools/hash'},
         {id:9,iconUrl:'/pages/res/pics/2.jpg', text:'pic9', url:'/pages/tools/default'},
-        {id:10,iconUrl:'/pages/res/pics/2.jpg', text:'pic10', url:'/pages/tools/default'},
+        {id:10,iconUrl:'/pages/res/pics/2.jpg', text:'pic10', url:'/pages/tools/default'}
     ]
   },
 

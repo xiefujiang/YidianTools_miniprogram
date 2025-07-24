@@ -16,17 +16,17 @@ Page({
             {
                 id: 2,
                 text: '历史记录',
-                url: '/pages/userpage/menupage/about'
+                url: '/pages/userpage/menupage/history'
             },
             {
                 id: 3,
                 text: '设置',
-                url: '/pages/userpage/menupage/about'
+                url: '/pages/userpage/menupage/setting'
             },
             {
                 id: 4,
                 text: '联系作者',
-                url: '/pages/userpage/menupage/about'
+                url: '/pages/userpage/menupage/contact'
             },
             {
                 id: 5,
@@ -39,6 +39,9 @@ Page({
     gotoUsersettingPage() {
         wx.navigateTo({
             url: '/pages/userpage/usersetting',
+            fail: function (err) {
+                console.error('页面跳转失败：', err);
+            }
         })
     },
     gotoMenu: function (e) {

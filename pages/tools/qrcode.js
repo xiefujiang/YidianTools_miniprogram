@@ -13,8 +13,104 @@ Page({
         retryCount: 0
     },
 
+    collectQrcode() {
+        // 收藏功能待实现
+        wx.showToast({
+            title: '收藏功能待实现',
+            icon: 'none'
+        });
+    },
+
+
+    // 检查并申请相机权限（在 scanQrcode 中调用）
+    checkCameraPermission() {
+        return new Promise((resolve, reject) => {
+            wx.getSetting({
+                success: (settingRes) => {
+                    // 检查是否有相机权限
+                    if (!settingRes.authSetting['scope.camera']) {
+                        // 无权限，申请权限
+                        wx.authorize({
+                            scope: 'scope.camera',
+                            success: () => resolve(true), // 授权成功
+                            fail: () => {
+                                // 授权失败，引导用户去设置页开启
+                                wx.showModal({
+                                    title: '需要相机权限',
+                                    content: '请在设置中开启相机权限以使用扫码功能',
+                                    confirmText: '去设置',
+                                    success: (modalRes) => {
+                                        if (modalRes.confirm) {
+                                            // 打开小程序设置页
+                                            wx.openSetting({
+                                                success: (openRes) => {
+                                                    resolve(openRes.authSetting['scope.camera'] || false);
+                                                }
+                                            });
+                                        } else {
+                                            resolve(false);
+                                        }
+                                    }
+                                });
+                            }
+                        });
+                    } else {
+                        // 已有权限
+                        resolve(true);
+                    }
+                }
+            });
+        });
+    },
+
+    // 修改后的扫码方法（加入权限检查）
+    async scanQrcode() {
+        // 先检查相机权限
+        const hasPermission = await this.checkCameraPermission();
+        if (!hasPermission) {
+            wx.showToast({
+                title: '未获得相机权限，无法扫码',
+                icon: 'none'
+            });
+            return;
+        }
+
+        // 权限通过，调用扫码接口（同上的 wx.scanCode 逻辑）
+        wx.scanCode({
+            onlyFromCamera: false, // 是否只能从相机扫码（false 支持相册选择）
+            scanType: ['qrCode', 'barCode'], // 支持的扫码类型（二维码、条形码）
+            success: (res) => {
+              // 扫码成功，res 包含解析结果
+              console.log('扫码结果：', res);
+              
+              // 展示扫码结果（可根据需求处理，如跳转链接、填充到输入框等）
+              wx.showModal({
+                title: '扫码成功',
+                content: '解析内容：${res.result}\n类型：${res.scanType}\n内容已复制到剪贴板',
+                showCancel: false
+              });
+        
+              this.setData({
+                inputValue: res.result,
+                showQrcode: false
+              });
+            },
+            fail: (err) => {
+              // 扫码失败（如用户取消、无权限等）
+              console.error('扫码失败：', err);
+              
+              // 排除用户主动取消的情况（不提示错误）
+              if (err.errMsg !== 'scanCode:fail cancel') {
+                wx.showToast({
+                  title: '扫码失败，请重试',
+                  icon: 'none'
+                });
+              }
+            }
+          });
+    },
+
     preview() {
-        // 检查是否有生成的二维码图片
         if (!this.data.qrcodeUrl) {
             wx.showToast({
                 title: '请先生成二维码',
@@ -22,11 +118,10 @@ Page({
             });
             return;
         }
-        
-        // 调用微信自带的图片预览API
+
         wx.previewImage({
-            current: this.data.qrcodeUrl,  // 当前显示图片的路径
-            urls: [this.data.qrcodeUrl],   // 需要预览的图片路径列表（单张图片时也需要数组形式）
+            current: this.data.qrcodeUrl,
+            urls: [this.data.qrcodeUrl],
             success: () => {
                 console.log('图片预览预览成功');
             },
