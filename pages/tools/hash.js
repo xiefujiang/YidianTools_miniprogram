@@ -81,5 +81,27 @@ Page({
             title: '收藏功能待实现',
             icon: 'none'
         });
-    }
+    },
+
+    onLoad(options) {
+        wx.showShareMenu({
+            withShareTicket: true,
+            menus: ['shareAppMessage', 'shareTimeline']
+        });
+    },
+
+    onShareTimeline() {
+        return {
+            title: '邀请你一起使用"哈希加密工具"',
+            query: "from=pyq"
+        }
+    },
+
+    onShareAppMessage() {
+        return {
+            title: '邀请你一起使用"哈希加密工具"',
+            path: '/pages/tools/hash',
+        };
+    },
+
 });

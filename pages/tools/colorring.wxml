@@ -1,2 +1,97 @@
-<!--pages/tools/colorring.wxml-->
-<text>pages/tools/colorring.wxml</text>
+<view class="container">
+  <view class="title">颜色预览</view>
+  
+  <!-- 颜色预览区域 -->
+  <view class="color-preview" style="background-color: {{colorHex}}"></view>
+  
+  <!-- 十六进制颜色代码显示和输入 -->
+  <view class="hex-code">
+    <text>HEX: </text>
+    <input 
+      type="text" 
+      value="{{colorHex}}" 
+      placeholder="#RRGGBB" 
+      maxlength="7"
+      class="hex-input"
+      bindinput="hexInputChange"
+      bindblur="handleHexBlur"
+    />
+    <button size="mini" bindtap="copyHexCode">复制</button>
+  </view>
+  
+  <!-- RGB滑块控制 -->
+  <view class="slider-container">
+    <view class="slider-item">
+      <view class="value-input-container">
+        <text>R: </text>
+        <input 
+          type="number" 
+          value="{{rValue}}" 
+          min="0" 
+          max="255" 
+          class="value-input"
+          bindinput="rInputChange"
+          bindblur="rInputBlur"
+        />
+      </view>
+      <slider 
+        value="{{rValue}}" 
+        min="0" 
+        max="255" 
+        activeColor="#ff0000" 
+        bindchange="rChange" 
+        bindchanging="rChanging" 
+      />
+    </view>
+    
+    <view class="slider-item">
+      <view class="value-input-container">
+        <text>G: </text>
+        <input 
+          type="number" 
+          value="{{gValue}}" 
+          min="0" 
+          max="255" 
+          class="value-input"
+          bindinput="gInputChange"
+          bindblur="gInputBlur"
+        />
+      </view>
+      <slider 
+        value="{{gValue}}" 
+        min="0" 
+        max="255" 
+        activeColor="#00ff00" 
+        bindchange="gChange" 
+        bindchanging="gChanging" 
+      />
+    </view>
+    
+    <view class="slider-item">
+      <view class="value-input-container">
+        <text>B: </text>
+        <input 
+          type="number" 
+          value="{{bValue}}" 
+          min="0" 
+          max="255" 
+          class="value-input"
+          bindinput="bInputChange"
+          bindblur="bInputBlur"
+        />
+      </view>
+      <slider 
+        value="{{bValue}}" 
+        min="0" 
+        max="255" 
+        activeColor="#0000ff" 
+        bindchange="bChange" 
+        bindchanging="bChanging" 
+      />
+    </view>
+  </view>
+  
+  <!-- 随机颜色按钮 -->
+  <button class="random-btn" type="primary" bindtap="generateRandomColor">随机颜色</button>
+  <button class="save-color" type="primary" bindtap="savecolor">收藏当前颜色</button>
+</view>

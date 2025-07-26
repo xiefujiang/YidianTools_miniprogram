@@ -1,0 +1,154 @@
+/* pages/userpage/menupage/policy.wxss */
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+  }
+  
+  /* 小程序信息样式 */
+  .app-info {
+    background-color: #ffffff;
+    padding: 30rpx 50rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .app-logo {
+    width: 160rpx;
+    height: 160rpx;
+    margin-bottom: 20rpx;
+    border-radius: 20rpx;
+    overflow: hidden;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .logo-img {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .app-name {
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10rpx;
+  }
+  
+  .app-version {
+    font-size: 24rpx;
+    color: #999;
+  }
+  
+  /* 滚动内容样式 */
+  .content-scroll {
+    flex: 1;
+    padding: 30rpx;
+    box-sizing: border-box;
+  }
+  
+  /* 章节样式 */
+  .section {
+    margin-bottom: 40rpx;
+    background-color: #ffffff;
+    border-radius: 16rpx;
+    padding: 30rpx;
+    box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  }
+  
+  .section-title {
+    font-size: 32rpx;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20rpx;
+    padding-bottom: 15rpx;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .section-content {
+    font-size: 26rpx;
+    color: #666;
+    line-height: 1.8;
+  }
+  
+  .paragraph {
+    margin-bottom: 20rpx;
+    text-align: justify;
+  }
+  
+  /* 子章节样式 */
+  .sub-section {
+    margin-bottom: 30rpx;
+  }
+  
+  .sub-title {
+    font-size: 28rpx;
+    font-weight: bold;
+    color: #444;
+    margin: 25rpx 0 15rpx 0;
+  }
+  
+  /* 权限项样式 */
+  .permission-item {
+    margin-bottom: 25rpx;
+    padding-left: 10rpx;
+    border-left: 4rpx solid #07c160;
+  }
+  
+  .permission-title {
+    font-size: 26rpx;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10rpx;
+  }
+  
+  .permission-desc {
+    font-size: 24rpx;
+    color: #666;
+    line-height: 1.7;
+    margin-left: 10rpx;
+  }
+  
+  .permission-desc view {
+    margin-bottom: 10rpx;
+  }
+  
+  /* 底部留白 */
+  .bottom-space {
+    height: 200rpx;
+  }
+  
+  /* 确认按钮样式 */
+  .confirm-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20rpx 30rpx;
+    background-color: #ffffff;
+    border-top: 1px solid #eee;
+    box-sizing: border-box;
+  }
+  
+  .confirm-btn {
+    width: 100%;
+    height: 90rpx;
+    line-height: 90rpx;
+    background-color: #07c160;
+    color: #ffffff;
+    font-size: 30rpx;
+    border-radius: 45rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .btn-hover {
+    background-color: #06b355;
+  }
+      

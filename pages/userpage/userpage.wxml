@@ -15,7 +15,10 @@
 
 <view class="list-container">
     <view class="list_placeholder"></view>
-    <view class="menu-item" wx:for="{{menuList}}" wx:key="id" bindtap="gotoMenu" data-url="{{item.url}}">
+    <!-- 其他菜单项 -->
+    <view class="menu-item" wx:for="{{menuList}}" wx:key="id" 
+          bindtap="{{item.id === 'share' ? 'handleShare' : 'gotoMenu'}}" 
+          data-url="{{item.url}}">
         <text class="menu-text">{{item.text}}</text>
         <text class="menu-text-arrow">></text>
     </view>

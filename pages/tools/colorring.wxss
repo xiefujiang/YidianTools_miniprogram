@@ -1,1 +1,77 @@
-/* pages/tools/colorring.wxss */
+.container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .color-preview {
+    width: 200px;
+    height: 100px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .hex-code {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    font-size: 16px;
+  }
+  
+  .hex-code text {
+    margin-right: 10px;
+  }
+  
+  .hex-input {
+    border: 1px solid #eee;
+    padding: 4px 8px;
+    margin-right: 10px;
+    width: 80px;
+    text-align: center;
+    border-radius: 4px;
+  }
+  
+  .slider-container {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  
+  .slider-item {
+    margin-bottom: 15px;
+  }
+  
+  .value-input-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  
+  .value-input {
+    border: 1px solid #eee;
+    padding: 2px 5px;
+    width: 50px;
+    margin-left: 5px;
+    text-align: center;
+    border-radius: 4px;
+  }
+  
+  .random-btn {
+    width: 200px;
+  }
+  .random-btn:hover{
+      opacity: 1;
+      
+  }
+
+  .save-color{
+      margin-top: 280rpx;
+  }

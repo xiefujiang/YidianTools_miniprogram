@@ -1,2 +1,45 @@
-<!--pages/userpage/menupage/about.wxml-->
-<text>pages/userpage/menupage/about.wxml</text>
+<view class="container">
+  <!-- 小程序信息区域 -->
+  <view class="app-info">
+    <image class="app-logo" src="{{appLogo}}" mode="widthFix" alt="{{appName}}的logo"></image>
+    <view class="app-name">{{appName}}</view>
+    <view class="app-desc">{{appDesc}}</view>
+  </view>
+  
+  <!-- 分隔线 -->
+  <view class="divider"></view>
+  
+  <!-- 作者信息区域 -->
+  <view class="info-section">
+    <view class="info-item">
+      <text class="info-label">作者:</text>
+      <text class="info-value">{{authorName}}</text>
+    </view>
+    
+    <view class="info-item">
+      <text class="info-label">邮箱:</text>
+      <text class="info-value" bindtap="copyEmail">{{authorEmail}}</text>
+    </view>
+    
+    <view class="info-item">
+      <text class="info-label">项目地址:</text>
+      <navigator url="{{githubUrl}}" class="info-value link" target="miniProgram" open-type="navigate">
+        {{githubRepo}}
+        <icon type="right" size="14" color="#666" />
+      </navigator>
+    </view>
+  </view>
+  
+  <!-- 分隔线 -->
+  <view class="divider"></view>
+  
+  <!-- 备案信息 -->
+  <view class="record-info">
+    <text>ICP备案号: {{icpRecord}}</text>
+    <view class="copyright">© {{currentYear}} {{appName}} 版权所有</view>
+  </view>
+  
+  <!-- 版本信息 -->
+  <view class="version-info">版本号: {{appVersion}}</view>
+</view>
+    

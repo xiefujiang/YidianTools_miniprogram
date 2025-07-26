@@ -13,7 +13,7 @@
     object-fit: fill;
 }
 .grid-container{
-    margin-top: 30%;
+    margin-top: 270rpx;
     display: flex;
     flex-wrap: wrap;
     padding: 10rpx;

@@ -1,1 +1,113 @@
-/* pages/userpage/menupage/about.wxss */
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    padding-bottom: 30rpx;
+  }
+  
+  /* 小程序信息样式 */
+  .app-info {
+      width: 250rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20rpx 60rpx;
+    background-color: #ffffff;
+    margin-bottom: 20rpx;
+    border-radius: 15rpx;
+  }
+  
+  .app-logo {
+    width: 160rpx;
+    height: 160rpx;
+    border-radius: 20rpx;
+    margin-bottom: 30rpx;
+    box-shadow: 0 4rpx 10rpx rgba(0, 0, 0, 0.1);
+  }
+  
+  .app-name {
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #333333;
+    margin-bottom: 15rpx;
+  }
+  
+  .app-desc {
+    font-size: 28rpx;
+    color: #666666;
+    text-align: center;
+    max-width: 80%;
+  }
+  
+  /* 分隔线 */
+  .divider {
+    height: 1px;
+    background-color: #eeeeee;
+    margin: 0 20rpx;
+  }
+  
+  /* 信息区域样式 */
+  .info-section {
+    background-color: #ffffff;
+    padding: 20rpx;
+    margin-bottom: 20rpx;
+  }
+  
+  .info-item {
+    display: flex;
+    padding: 25rpx 15rpx;
+    border-bottom: 1px solid #f5f5f5;
+  }
+  
+  .info-item:last-child {
+    border-bottom: none;
+  }
+  
+  .info-label {
+    font-size: 28rpx;
+    color: #666666;
+    width: 160rpx;
+  }
+  
+  .info-value {
+    font-size: 28rpx;
+    color: #333333;
+    flex: 1;
+    word-break: break-all;
+  }
+  
+  .link {
+    color: #2c85e6;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  /* 备案信息样式 */
+  .record-info {
+    background-color: #ffffff;
+    padding: 30rpx 20rpx;
+    text-align: center;
+    margin-bottom: 20rpx;
+  }
+  
+  .record-info text {
+    font-size: 26rpx;
+    color: #999999;
+  }
+  
+  .copyright {
+    font-size: 24rpx;
+    color: #bbbbbb;
+    margin-top: 15rpx;
+  }
+  
+  /* 版本信息 */
+  .version-info {
+    font-size: 24rpx;
+    color: #aaaaaa;
+    text-align: center;
+    margin-top: 10rpx;
+  }
+      

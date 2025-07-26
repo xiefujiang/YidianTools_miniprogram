@@ -1,0 +1,111 @@
+<view class="container">
+  <!-- 小程序信息区域 -->
+  <view class="app-info">
+    <view class="app-logo">
+      <image src="/pages/res/pics/2.jpg" mode="widthFix" class="logo-img" alt="{{appName}}的logo"></image>
+    </view>
+    <view class="app-name">{{appName}}</view>
+    <view class="app-version">版本号: {{appVersion}}</view>
+  </view>
+  
+  <!-- 内容滚动区域 -->
+  <scroll-view class="content-scroll" scroll-y>
+    <!-- 用户协议 -->
+    <view class="section">
+      <view class="section-title">用户协议</view>
+      <view class="section-content">
+        <view class="paragraph">欢迎使用{{appName}}小程序（以下简称"本小程序"）。在使用本小程序前，请您仔细阅读以下条款。您使用本小程序即表示您已阅读、理解并同意本协议的全部内容。</view>
+        
+        <view class="paragraph">1. 您承诺在使用本小程序时，遵守国家法律法规及相关规定，不得利用本小程序从事任何违法违规活动。</view>
+        
+        <view class="paragraph">2. 本小程序提供的服务仅供您个人非商业用途使用，未经授权，不得用于任何商业目的。</view>
+        
+        <view class="paragraph">3. 您应对使用本小程序过程中的所有行为负责，如因您的行为导致任何损失或法律责任，由您自行承担。</view>
+        
+        <view class="paragraph">4. 我们保留随时修改本协议的权利，修改后的协议将在小程序内公示。如您继续使用本小程序，即表示您同意修改后的协议。</view>
+      </view>
+    </view>
+    
+    <!-- 隐私政策 -->
+    <view class="section">
+      <view class="section-title">隐私政策</view>
+      <view class="section-content">
+        <view class="paragraph">本小程序尊重并保护所有使用服务用户的个人隐私权。为了给您提供更准确、更优质的服务，本小程序会按照本隐私政策的规定使用和披露您的个人信息。但本小程序将以高度的勤勉、审慎义务对待这些信息。</view>
+        
+        <!-- 收集的信息 -->
+        <view class="sub-section">
+          <view class="sub-title">一、我们收集的信息</view>
+          <view class="paragraph">1. 当您使用微信登录本小程序时，我们会获取您的微信昵称、头像等公开信息，这些信息仅用于识别用户身份和提供个性化服务。</view>
+          <view class="paragraph">2. 您在使用本小程序过程中主动填写或提交的信息，包括但不限于用户名、联系方式等。</view>
+          <view class="paragraph">3. 您使用本小程序功能时产生的相关数据，如使用记录、操作偏好等，这些数据将用于改进我们的服务。</view>
+        </view>
+        
+        <!-- 信息使用用途 -->
+        <view class="sub-section">
+          <view class="sub-title">二、信息使用用途</view>
+          <view class="paragraph">1. 提供服务：用于为您提供小程序的核心功能和服务，确保服务的正常运行。</view>
+          <view class="paragraph">2. 个性化体验：根据您的偏好和使用习惯，为您提供个性化的服务和内容推荐。</view>
+          <view class="paragraph">3. 服务改进：基于收集的信息，分析和改进我们的服务质量和用户体验。</view>
+          <view class="paragraph">4. 安全保障：用于识别和防范安全风险，保护您的账号安全。</view>
+          <view class="paragraph">5. 法律法规要求：在法律规定的范围内，配合相关部门的调查和要求。</view>
+        </view>
+        
+        <!-- 系统权限说明 -->
+        <view class="sub-section">
+          <view class="sub-title">三、系统权限说明</view>
+          
+          <view class="permission-item">
+            <view class="permission-title">1. 相机权限</view>
+            <view class="permission-desc">
+              <view>用途：用于扫描二维码及拍照上传图片功能。</view>
+              <view>获取时机：当您首次使用扫描或拍照功能时。</view>
+              <view>您可以随时在手机设置中关闭此权限，但这可能导致相关功能无法正常使用。</view>
+            </view>
+          </view>
+          
+          <view class="permission-item">
+            <view class="permission-title">2. 相册权限</view>
+            <view class="permission-desc">
+              <view>用途：用于从手机相册中导入图片。</view>
+              <view>获取时机：当您首次使用从相册选择图片功能时。</view>
+              <view>您可以随时在手机设置中关闭此权限，但这可能导致相关功能无法正常使用。</view>
+            </view>
+          </view>
+          
+          <view class="permission-item">
+            <view class="permission-title">3. 剪贴板权限</view>
+            <view class="permission-desc">
+              <view>用途：用于复制工具输出的结果，方便您在其他应用中使用。</view>
+              <view>获取时机：当您使用复制功能时。</view>
+              <view>我们仅在您主动触发复制操作时访问剪贴板，不会主动监听或读取剪贴板内容。</view>
+            </view>
+          </view>
+        </view>
+        
+        <!-- 信息保护 -->
+        <view class="sub-section">
+          <view class="sub-title">四、信息保护</view>
+          <view class="paragraph">1. 我们采用行业标准的安全技术和程序保护您的个人信息，防止信息被未授权访问、使用或泄露。</view>
+          <view class="paragraph">2. 我们不会向任何第三方出售、出租您的个人信息，除非获得您的明确同意或法律要求。</view>
+          <view class="paragraph">3. 如因不可抗力或非我们所能控制的原因导致信息泄露，我们将尽力配合相关部门进行处理，但不承担由此造成的直接或间接损失。</view>
+        </view>
+        
+        <!-- 联系我们 -->
+        <view class="sub-section">
+          <view class="sub-title">五、联系我们</view>
+          <view class="paragraph">如您对本隐私政策有任何疑问，请通过以下方式联系我们：</view>
+          <view class="paragraph">作者邮箱：{{contactEmail}}</view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 底部留白 -->
+    <view class="bottom-space"></view>
+  </scroll-view>
+  
+  <!-- 确认按钮 -->
+  <view class="confirm-bar" wx:if="{{false}}">
+    <button class="confirm-btn" bindtap="agreeAgreement" hover-class="btn-hover">我已阅读并同意</button>
+  </view>
+</view>
+    

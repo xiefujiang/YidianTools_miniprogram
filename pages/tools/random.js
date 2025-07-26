@@ -18,7 +18,24 @@ Page({
     },
 
     onLoad() {
-        // 初始化
+        wx.showShareMenu({
+            withShareTicket: true,
+            menus: ['shareAppMessage', 'shareTimeline']
+        });
+    },
+
+    onShareTimeline() {
+        return {
+            title: '邀请你一起使用"随机数生成器"',
+            query: "from=pyq"
+        }
+    },
+
+    onShareAppMessage() {
+        return {
+            title: '邀请你一起使用"随机数生成器"',
+            path: '/pages/tools/random',
+        };
     },
 
     toggleOption(e) {

@@ -80,34 +80,34 @@ Page({
             onlyFromCamera: false, // 是否只能从相机扫码（false 支持相册选择）
             scanType: ['qrCode', 'barCode'], // 支持的扫码类型（二维码、条形码）
             success: (res) => {
-              // 扫码成功，res 包含解析结果
-              console.log('扫码结果：', res);
-              
-              // 展示扫码结果（可根据需求处理，如跳转链接、填充到输入框等）
-              wx.showModal({
-                title: '扫码成功',
-                content: '解析内容：${res.result}\n类型：${res.scanType}\n内容已复制到剪贴板',
-                showCancel: false
-              });
-        
-              this.setData({
-                inputValue: res.result,
-                showQrcode: false
-              });
+                // 扫码成功，res 包含解析结果
+                console.log('扫码结果：', res);
+
+                // 展示扫码结果（可根据需求处理，如跳转链接、填充到输入框等）
+                wx.showModal({
+                    title: '扫码成功',
+                    content: '解析内容：${res.result}\n类型：${res.scanType}\n内容已复制到剪贴板',
+                    showCancel: false
+                });
+
+                this.setData({
+                    inputValue: res.result,
+                    showQrcode: false
+                });
             },
             fail: (err) => {
-              // 扫码失败（如用户取消、无权限等）
-              console.error('扫码失败：', err);
-              
-              // 排除用户主动取消的情况（不提示错误）
-              if (err.errMsg !== 'scanCode:fail cancel') {
-                wx.showToast({
-                  title: '扫码失败，请重试',
-                  icon: 'none'
-                });
-              }
+                // 扫码失败（如用户取消、无权限等）
+                console.error('扫码失败：', err);
+
+                // 排除用户主动取消的情况（不提示错误）
+                if (err.errMsg !== 'scanCode:fail cancel') {
+                    wx.showToast({
+                        title: '扫码失败，请重试',
+                        icon: 'none'
+                    });
+                }
             }
-          });
+        });
     },
 
     preview() {
@@ -149,6 +149,25 @@ Page({
         this.setData({
             canvasSize: windowInfo.windowWidth * 0.7
         });
+
+        wx.showShareMenu({
+            withShareTicket: true,
+            menus: ['shareAppMessage', 'shareTimeline']
+        });
+    },
+
+    onShareTimeline() {
+        return {
+            title: '邀请你一起使用"二维码生成器"',
+            query: "from=pyq"
+        }
+    },
+
+    onShareAppMessage() {
+        return {
+            title: '邀请你一起使用"二维码生成器"',
+            path: '/pages/tools/qrcode',
+        };
     },
 
     onInputChange(e) {

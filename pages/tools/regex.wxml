@@ -1,2 +1,96 @@
 <!--pages/tools/regex.wxml-->
-<text>pages/tools/regex.wxml</text>
+<view class="container">
+
+    <!-- 常用正则模板选择 -->
+    <view class="template-section">
+        <view class="section-title">常用模板</view>
+        <view class="template-grid">
+            <view class="template-item" bindtap="selectTemplate" data-pattern="^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$">邮箱</view>
+            <view class="template-item" bindtap="selectTemplate" data-pattern="^1[3-9]\d{9}$">手机号</view>
+            <view class="template-item" bindtap="selectTemplate" data-pattern="^\d{6}$">验证码</view>
+            <view class="template-item" bindtap="selectTemplate" data-pattern="^[A-Za-z0-9]+$">字母数字</view>
+            <view class="template-item" bindtap="selectTemplate" data-pattern="^\d{4}-\d{1,2}-\d{1,2}$">日期(yyyy-mm-dd)</view>
+            <view class="template-item" bindtap="selectTemplate" data-pattern="^https?://.*$">URL地址</view>
+            <view class="template-item" bindtap="showMoreTemplatesModals">更多</view>
+        </view>
+    </view>
+
+    <!-- 更多模板弹窗 -->
+    <view class="modal-mask" wx:if="{{showMoreModal}}" bindtap="hideMoreTemplatesModal"></view>
+    <view class="modal-container" wx:if="{{showMoreModal}}">
+        <view class="modal-title">选择正则模板</view>
+        <view class="modal-list">
+            <view class="modal-item" wx:for="{{moreTemplates}}" wx:key="index" bindtap="selectTemplate" data-index="{{index}}">
+                {{item.name}}
+            </view>
+        </view>
+        <view class="modal-close" bindtap="hideMoreTemplatesModal">关闭</view>
+    </view>
+
+    <!-- 正则表达式输入 -->
+    <view class="input-section">
+        <view class="input-title">
+            <view class="section-title">正则表达式</view>
+            <button class="copy-btn" type="default" bindtap="copyregex">复制当前表达式</button>
+        </view>
+        <textarea class="regex-input" placeholder="请输入正则表达式" value="{{regexPattern}}" bindinput="onRegexInput"></textarea>
+    </view>
+
+    <!-- 匹配选项 -->
+    <view class="options-section">
+        <view class="section-title">匹配选项</view>
+        <view class="options-grid">
+            <view class="option-item">
+                <checkbox value="i" checked="{{options.ignoreCase}}" bindchange="onOptionChange" data-option="ignoreCase" />
+                <text>忽略大小写 (i)</text>
+            </view>
+            <view class="option-item">
+                <checkbox value="g" checked="{{options.global}}" bindchange="onOptionChange" data-option="global" />
+                <text>全局匹配 (g)</text>
+            </view>
+            <view class="option-item">
+                <checkbox value="m" checked="{{options.multiline}}" bindchange="onOptionChange" data-option="multiline" />
+                <text>多行匹配 (m)</text>
+            </view>
+            <view class="option-item">
+                <checkbox value="s" checked="{{options.dotAll}}" bindchange="onOptionChange" data-option="dotAll" />
+                <text>点匹配所有 (s)</text>
+            </view>
+        </view>
+    </view>
+
+    <!-- 测试文本输入 -->
+    <view class="input-section">
+        <view class="section-title">测试文本</view>
+        <textarea class="text-input" placeholder="请输入要测试的文本" value="{{testText}}" bindinput="onTextInput"></textarea>
+    </view>
+
+    <!-- 操作按钮 -->
+    <view class="button-group">
+        <button class="match-btn" bindtap="testRegex">开始匹配</button>
+        <button class="clear-btn" bindtap="clearAll">清空</button>
+    </view>
+
+    <!-- 结果展示 -->
+    <view class="result-section" wx:if="{{showResult}}" id="scrollTarget">
+        <view class="section-title">匹配结果</view>
+        <view class="result-status {{isValid ? 'valid' : 'invalid'}}">
+            {{isValid ? '匹配成功' : '匹配失败'}}
+        </view>
+
+        <view class="matches-list" wx:if="{{matches.length > 0}}">
+            <view class="match-item" wx:for="{{matches}}" wx:key="index">
+                <view class="match-index">匹配 {{index + 1}}:</view>
+                <view class="match-value">{{item}}</view>
+            </view>
+        </view>
+
+        <view class="no-match" wx:if="{{matches.length === 0 && isValid}}">
+            没有找到匹配项
+        </view>
+
+        <view class="error-message" wx:if="{{errorMessage}}">
+            错误: {{errorMessage}}
+        </view>
+    </view>
+</view>

@@ -94,6 +94,6 @@
   <!-- 分享按钮 -->
   <!-- wx:if="{{output}}" -->
   <button class="share-btn" open-type="share" disabled="{{!output || output.length === 0}}">
-    分享结果
+    收藏结果
   </button>
 </view>

@@ -25,6 +25,7 @@ page::before {
     flex-direction: row;
     height: 300rpx;
     border-bottom: rgba(0, 0, 0, 0.3) solid 1rpx;
+    z-index: 10;
 }
 
 .fixed-userInfo-container {
@@ -80,12 +81,14 @@ page::before {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%-20rpx;
+    width: 650rpx;
     padding: 0 30rpx;
     background-color: #ffffff;
     margin: 10rpx;
     border-radius: 10rpx;
+    position: relative;
 }
+
 
 .menu-text {
     margin-left: 70rpx;

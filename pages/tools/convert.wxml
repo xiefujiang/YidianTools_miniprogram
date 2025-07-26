@@ -1,2 +1,54 @@
-<!--pages/tools/convert.wxml-->
-<text>pages/tools/convert.wxml</text>
+<view class="container">
+    <!-- 标题区域 -->
+    <view class="title-section">
+        <text class="title">进制转换器</text>
+        <text class="subtitle">--实时转换，无需额外操作</text>
+    </view>
+
+    <!-- 第一个输入区域 -->
+    <view class="input-section">
+        <view class="base-selector">
+            <picker bindchange="onBase1Change" value="{{base1Index}}" range="{{bases}}">
+                <view class="picker-view">
+                    {{bases[base1Index]}}
+                    <icon type="down" size="16" color="#666" class="picker-icon" />
+                </view>
+            </picker>
+        </view>
+
+        <view class="input-group">
+            <input type="text" placeholder="输入数值" value="{{value1}}" bindinput="onValue1Change" class="input-field" placeholder-class="placeholder-style" />
+            <button bindtap="copyValue1" class="copy-btn" hover-class="copy-btn-hover">复制</button>
+        </view>
+    </view>
+
+    <!-- 转换图标 -->
+    <view class="swap-icon-container">
+        <image src="/pages/res/icons/convert_icon.png" mode="widthFix" class="swap-icon {{isRotated ? 'rotate-active' : ''}}" bindtap="onSwapBases" alt="互相转换图标" data-rotated="{{isRotated}}"></image>
+    </view>
+
+    <!-- 第二个输入区域 -->
+    <view class="second-input-section">
+        <view class="base-selector">
+            <picker bindchange="onBase2Change" value="{{base2Index}}" range="{{bases}}">
+                <view class="picker-view">
+                    {{bases[base2Index]}}
+                    <icon type="down" size="16" color="#666" class="picker-icon" />
+                </view>
+            </picker>
+        </view>
+
+        <view class="input-group">
+            <input type="text" placeholder="转换结果" value="{{value2}}" bindinput="onValue2Change" class="input-field" placeholder-class="placeholder-style" />
+            <button bindtap="copyValue2" class="copy-btn" hover-class="copy-btn-hover">复制</button>
+        </view>
+    </view>
+
+    <!-- 收藏按钮 -->
+    <view class="save-container">
+        <button class="save-btn" hover-class="save-btn-hover" bindtap="saveResult">
+            收藏结果
+        </button>
+    </view>
+
+</view>

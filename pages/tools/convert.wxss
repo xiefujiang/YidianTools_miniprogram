@@ -1,1 +1,193 @@
-/* pages/tools/convert.wxss */
+/* 基础样式 */
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #f5f7fa;
+    padding: 20rpx;
+    /* 增加底部内边距，避免内容被固定定位的按钮遮挡 */
+    padding-bottom: 130rpx;
+  }
+  
+  /* 标题区域 */
+  .title-section {
+    text-align: center;
+    margin: 60rpx 0 80rpx;
+  }
+  
+  .title {
+    font-size: 48rpx;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15rpx;
+    display: inline-block;
+    background: linear-gradient(135deg, #3498db, #9b59b6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .subtitle {
+    font-size: 24rpx;
+    color: #666;
+    opacity: 0.8;
+  }
+  
+  /* 输入区域 */
+  .input-section {
+    background-color: #fff;
+    border-radius: 16rpx;
+    padding: 30rpx;
+    margin-bottom: 30rpx;
+    box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .input-section:hover {
+    transform: translateY(-2rpx);
+    box-shadow: 0 12rpx 32rpx rgba(0, 0, 0, 0.08);
+  }
+  
+  /* 进制选择器 */
+  .base-selector {
+    margin-bottom: 20rpx;
+  }
+  
+  .picker-view {
+    display: inline-block;
+    font-size: 28rpx;
+    color: #555;
+    padding: 8rpx 16rpx;
+    background-color: #f0f2f5;
+    border-radius: 8rpx;
+  }
+  
+  .picker-icon {
+    margin-left: 8rpx;
+    vertical-align: middle;
+  }
+  
+  /* 输入框组 */
+  .input-group {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  
+  .input-field {
+    flex: 3;
+    height: 80rpx;
+    padding: 0 20rpx;
+    border: 2rpx solid #e5e7eb;
+    border-radius: 10rpx;
+    font-size: 32rpx;
+    color: #333;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .input-field:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 4rpx rgba(52, 152, 219, 0.2);
+    outline: none;
+  }
+  
+  .placeholder-style {
+    color: #c0c4cc;
+    font-size: 30rpx;
+  }
+  
+  /* 复制按钮 */
+  .copy-btn {
+    width: 80rpx;
+    height: 80rpx;
+    margin-left: 15rpx;
+    background-color: #3498db;
+    border-radius: 10rpx;
+    display: flex;
+    flex:2;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .copy-btn-hover {
+    background-color: #2980b9;
+    transform: scale(0.95);
+  }
+  
+  /* 转换图标 */
+  .swap-icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30rpx 0;
+  }
+  
+  .swap-icon {
+    width: 80rpx;
+    height: 80rpx;
+    opacity: 0.8;
+    transition: transform 0.5s ease, opacity 0.3s ease;
+    transform: rotate(90deg);
+  }
+
+  .swap-icon:hover{
+      opacity: 1;
+  }
+
+  .swap-icon.rotate-active {
+    transform: rotate(270deg); /* 90 + 180 = 270度 */
+  }
+  
+  /* 收藏按钮 - 修复位置变动问题 */
+  .save-container {
+    /* 固定在底部，不影响其他元素布局 */
+    position: fixed;
+    bottom: 50rpx;
+    left: 20rpx;
+    right: 20rpx;
+  }
+  
+  .save-btn {
+    height: 90rpx;
+    line-height: 90rpx;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: #fff;
+    font-size: 32rpx;
+    border-radius: 45rpx;
+    box-shadow: 0 10rpx 20rpx rgba(52, 152, 219, 0.2);
+    transition: all 0.2s ease; /* 调整过渡效果 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* 确保宽度充满容器 */
+    box-sizing: border-box; /* 确保内边距不影响尺寸 */
+  }
+  
+  /* 修改点击状态样式，不改变尺寸 */
+  .save-btn-hover {
+    transform: translateY(1rpx); /* 微小位移替代缩放 */
+    box-shadow: 0 5rpx 15rpx rgba(52, 152, 219, 0.2);
+    opacity: 0.95; /* 通过透明度提供反馈 */
+  }
+  
+  .star-icon {
+    margin-right: 15rpx;
+    width: 36rpx;
+    height: 36rpx;
+  }
+
+.second-input-section {
+    background-color: #fff;
+    border-radius: 16rpx;
+    padding: 30rpx;
+    margin-bottom: 300rpx;
+    box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .second-input-section:hover {
+    transform: translateY(-2rpx);
+    box-shadow: 0 12rpx 32rpx rgba(0, 0, 0, 0.08);
+  }
