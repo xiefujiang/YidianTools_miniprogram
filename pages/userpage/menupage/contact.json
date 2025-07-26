@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
-}
+    "navigationBarTitleText": "联系作者",
+    "navigationBarBackgroundColor": "#f5f5f5",
+    "navigationBarTextStyle": "black"
+  }
+  

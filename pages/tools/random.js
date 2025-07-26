@@ -79,13 +79,17 @@ Page({
         const newConfig = {
             ...this.data.config
         };
-        newConfig.customChars = e.detail.value;
-
-        // 如果用户输入了自定义字符，自动选中自定义选项
-        if (newConfig.customChars.trim() !== '') {
+        const customChars = e.detail.value;
+        newConfig.customChars = customChars;
+    
+        // 当用户输入了自定义字符，自动选中自定义选项
+        if (customChars.trim() !== '') {
             newConfig.custom = true;
+        } else {
+            // 当自定义字符为空时，自动取消自定义选项
+            newConfig.custom = false;
         }
-
+    
         this.setData({
             config: newConfig
         });
@@ -196,17 +200,19 @@ Page({
         this.setData({
             resultText: value
         });
-
-        // 当用户修改结果时，自动启用自定义选项
+        
+        /*
+        // 当用户修改结果时，仅启用自定义选项，不修改自定义字符集
         if (value.trim() !== '') {
             const newConfig = {
                 ...this.data.config
             };
             newConfig.custom = true;
-            newConfig.customChars = value;
             this.setData({
                 config: newConfig
             });
         }
+        
+    */
     }
 });

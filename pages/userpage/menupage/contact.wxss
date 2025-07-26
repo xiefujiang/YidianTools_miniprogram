@@ -1,1 +1,156 @@
-/* pages/userpage/menupage/contact.wxss */
+.container {
+    min-height: 100vh;
+    background-color: #f9f9f9;
+    padding-bottom: 30px;
+    padding-top: 100rpx;
+  }
+  
+  /* 表单样式 */
+  .contact-form {
+    background-color: #fff;
+    margin: 15px;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    width: 550rpx;
+  }
+  
+  .form-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+    display: block;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    box-sizing: border-box;
+    height: 80rpx;
+  }
+  
+  .form-input:focus, .form-textarea:focus {
+    border-color: #07c160;
+    outline: none;
+  }
+  
+  .form-textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    min-height: 120px;
+    box-sizing: border-box;
+  }
+  
+  .word-count {
+    text-align: right;
+    font-size: 12px;
+    color: #999;
+    margin-top: 5px;
+  }
+  
+  .submit-btn {
+    width: 100%;
+    padding: 12px 0;
+    background-color: #07c160;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 6px;
+    margin-top: 10px;
+  }
+  
+  .submit-btn:disabled {
+    background-color: #ccc;
+  }
+  
+  /* 其他联系方式 */
+  .other-contacts {
+    background-color: #fff;
+    margin: 15px;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .contacts-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #f5f5f5;
+  }
+  
+  .contact-item:last-child {
+    border-bottom: none;
+  }
+  
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+  }
+
+  .icon{
+      height: 100%;
+      width: 100%;
+  }
+  
+  .contact-info {
+    flex: 1;
+  }
+  
+  .contact-label {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 3px;
+  }
+  
+  .contact-value {
+    font-size: 13px;
+    color: #666;
+  }
+  
+  .contact-arrow {
+    color: #999;
+  }
+  
+  /* 底部提示 */
+  .bottom-tip {
+    text-align: center;
+    font-size: 13px;
+    color: #999;
+    margin-top: 20px;
+    padding: 0 15px;
+  }
+  

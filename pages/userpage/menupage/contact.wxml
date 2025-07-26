@@ -1,2 +1,97 @@
-<!--pages/userpage/menupage/contact.wxml-->
-<text>pages/userpage/menupage/contact.wxml</text>
+<view class="container">
+  <!-- 联系表单区域 -->
+  <view class="contact-form">
+    <view class="form-title">发送消息</view>
+    
+    <view class="form-group">
+      <view class="form-label">您的昵称</view>
+      <input 
+        class="form-input" 
+        placeholder="请输入您的昵称" 
+        bindinput="onNicknameChange"
+        value="{{nickname}}"
+      />
+    </view>
+    
+    <view class="form-group">
+      <view class="form-label">联系邮箱</view>
+      <input 
+        class="form-input" 
+        placeholder="请输入您的邮箱（选填）" 
+        bindinput="onEmailChange"
+        value="{{email}}"
+        type="text"
+      />
+    </view>
+    
+    <view class="form-group">
+      <view class="form-label">消息内容</view>
+      <textarea 
+        class="form-textarea" 
+        placeholder="请输入您想反馈的问题或建议..." 
+        bindinput="onContentChange"
+        value="{{content}}"
+        auto-height
+        maxlength="500"
+      />
+      <view class="word-count">{{content.length}}/500</view>
+    </view>
+    
+    <button 
+      class="submit-btn" 
+      bindtap="submitForm"
+      disabled="{{!content}}"
+    >
+      发送消息
+    </button>
+  </view>
+  
+  <!-- 其他联系方式 -->
+  <view class="other-contacts">
+    <view class="contacts-title">其他联系方式</view>
+    
+    <view class="contact-item" bindtap="copyEmail">
+      <view class="contact-icon">
+        <image src="/pages/res/icons/mail.png" class="icon"></image>
+      </view>
+      <view class="contact-info">
+        <view class="contact-label">邮箱联系</view>
+        <view class="contact-value">{{authorEmail}}</view>
+      </view>
+      <view class="contact-arrow">
+        <icon type="copy" size="16" color="#999" />
+      </view>
+    </view>
+    
+    <view class="contact-item" bindtap="openGithub">
+      <view class="contact-icon">
+        <image src="/pages/res/icons/github.png" class="icon"></image>
+      </view>
+      <view class="contact-info">
+        <view class="contact-label">GitHub</view>
+        <view class="contact-value">{{githubRepo}}</view>
+      </view>
+      <view class="contact-arrow">
+        <icon type="right" size="16" color="#999" />
+      </view>
+    </view>
+    
+    <view class="contact-item" bindtap="makePhoneCall" wx:if="{{showPhone}}">
+      <view class="contact-icon">
+        <icon type="phone" size="20" color="#666" />
+      </view>
+      <view class="contact-info">
+        <view class="contact-label">电话联系</view>
+        <view class="contact-value">{{authorPhone}}</view>
+      </view>
+      <view class="contact-arrow">
+        <icon type="right" size="6" color="#000000" />
+      </view>
+    </view>
+  </view>
+  
+  <!-- 底部提示 -->
+  <view class="bottom-tip">
+    我们会尽快回复您的反馈，感谢您的支持！
+  </view>
+</view>

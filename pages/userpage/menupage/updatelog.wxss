@@ -1,1 +1,178 @@
-/* pages/userpage/menupage/updatelog.wxss */
+.update-log-container {
+    min-height: 100vh;
+    background-color: #fafafa;
+    padding: 0 30rpx 60rpx;
+  }
+  
+  /* 页面头部 */
+  .page-header {
+    padding: 40rpx 0;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 30rpx;
+  }
+  
+  .header-title {
+    font-size: 36rpx;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10rpx;
+  }
+  
+  .header-subtitle {
+    font-size: 24rpx;
+    color: #666;
+  }
+  
+  /* 最新版本提示 */
+  .latest-badge {
+    background-color: #e6f7ff;
+    color: #1890ff;
+    font-size: 24rpx;
+    padding: 8rpx 16rpx;
+    border-radius: 20rpx;
+    margin-bottom: 20rpx;
+    display: inline-block;
+  }
+  
+  /* 时间线容器 */
+  .timeline-container {
+    position: relative;
+    padding-left: 40rpx;
+  }
+  
+  /* 版本项 */
+  .version-item {
+    position: relative;
+    padding-bottom: 40rpx;
+    display: flex;
+  }
+  
+  /* 时间线节点 */
+  .timeline-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 30rpx;
+  }
+  
+  .node-dot {
+    width: 20rpx;
+    height: 20rpx;
+    border-radius: 50%;
+    margin-bottom: 10rpx;
+    z-index: 1;
+  }
+  
+  .node-line {
+    width: 2rpx;
+    flex: 1;
+    background-color: #eee;
+  }
+  
+  /* 版本内容 */
+  .version-content {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 16rpx;
+    padding: 25rpx;
+    box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  }
+  
+  /* 版本头部 */
+  .version-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20rpx;
+    flex-wrap: wrap;
+    gap: 10rpx;
+  }
+  
+  .version-info {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15rpx;
+  }
+  
+  .version-number {
+    font-size: 30rpx;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .version-date {
+    font-size: 24rpx;
+    color: #999;
+  }
+  
+  .version-type {
+    font-size: 20rpx;
+    background-color: #fff2e8;
+    color: #ff4d4f;
+    padding: 2rpx 10rpx;
+    border-radius: 10rpx;
+  }
+  
+  .copy-btn {
+    font-size: 22rpx;
+    padding: 5rpx 15rpx;
+    height: auto;
+    line-height: normal;
+    background-color: #f5f5f5;
+    color: #666;
+  }
+  
+  .copy-btn:hover {
+    background-color: #eee;
+  }
+  
+  /* 更新内容列表 */
+  .update-content {
+    padding-left: 5rpx;
+  }
+  
+  .content-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15rpx;
+    line-height: 1.6;
+  }
+  
+  .content-item:last-child {
+    margin-bottom: 0;
+  }
+  
+  .update-icon {
+    margin-right: 12rpx;
+    margin-top: 4rpx;
+  }
+  
+  .update-text {
+    font-size: 26rpx;
+    color: #555;
+  }
+  
+  /* 空状态 */
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100rpx 0;
+    color: #999;
+  }
+  
+  .empty-text {
+    font-size: 28rpx;
+    margin-top: 20rpx;
+  }
+  
+  /* 下拉刷新样式 */
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+  }
+  

@@ -32,8 +32,8 @@ Page({
         appVersion: "1.0.0",
         authorName: "野指针w1ldptr",
         authorEmail: "1094474436@qq.com",
-        githubUrl: "https://github.com/username/repo",
-        githubRepo: "github.com/username/repo",
+        githubUrl: "https://github.com/xiefujiang/YidianTools_miniprogram",
+        githubRepo: "YidianTools_miniprogram",
         icpRecord: "鲁ICP备2025137015号-2X"
       };
       
@@ -65,6 +65,28 @@ Page({
         }
       });
     },
+
+    openGithub() {
+        wx.openUrl({
+          url: this.data.githubUrl,
+          success() {
+            console.log('打开链接成功');
+          },
+          fail(err) {
+            console.log('打开链接失败', err);
+            wx.setClipboardData({
+                data: this.url,
+                success(res) {
+                  wx.showToast({
+                    title: '链接已复制',
+                    icon: 'success',
+                    duration: 1500
+                  });
+                }
+              });
+          }
+        })
+      },
   
     /**
      * 生命周期函数--监听页面初次渲染完成

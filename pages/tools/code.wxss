@@ -1,1 +1,246 @@
-/* pages/tools/code.wxss */
+.container {
+    padding: 20rpx;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+  }
+  
+  /* 输入区域样式 */
+  .input-section {
+      width: 680rpx;
+    background-color: #fff;
+    border-radius: 16rpx;
+    padding: 20rpx;
+    margin-bottom: 20rpx;
+    box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  }
+  
+  .input-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15rpx;
+  }
+  
+  .input-title {
+    font-size: 30rpx;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .format-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 10rpx;
+  }
+  
+  .format-btn {
+    padding: 8rpx 20rpx;
+    font-size: 24rpx;
+    line-height: 1;
+    border-radius: 20rpx;
+    background-color: #f0f0f0;
+    color: #666;
+  }
+  
+  .format-btn.active {
+    background-color: #37c2bc;
+    color: #fff;
+  }
+
+  .format-btn-json {
+    padding: 8rpx 20rpx;
+    font-size: 24rpx;
+    line-height: 1;
+    border-radius: 20rpx;
+    background-color: #f0f0f0;
+    color: #666;
+  }
+  
+  .input-content {
+    width: 100%;
+    min-height: 200rpx;
+    padding: 15rpx;
+    border: 1px solid #eee;
+    border-radius: 10rpx;
+    font-size: 26rpx;
+    line-height: 1.5;
+    color: #333;
+    box-sizing: border-box;
+  }
+  
+  .input-actions {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15rpx;
+    margin-top: 15rpx;
+  }
+  
+  .action-btn {
+    padding: 12rpx 25rpx;
+    font-size: 26rpx;
+    line-height: 1;
+    border-radius: 8rpx;
+  }
+  
+  .clear-btn {
+    background-color: #f5f5f5;
+    color: #666;
+  }
+  
+  .parse-btn {
+    background-color: #37c2bc;
+    color: #fff;
+  }
+  
+  .convert-btn {
+    background-color: #4a90e2;
+    color: #fff;
+  }
+  
+  /* 分隔线 */
+  .divider {
+    text-align: center;
+    color: #999;
+    font-size: 24rpx;
+    margin: 20rpx 0;
+    position: relative;
+  }
+  
+  .divider::before, .divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 35%;
+    height: 1px;
+    background-color: #eee;
+  }
+  
+  .divider::before {
+    left: 0;
+  }
+  
+  .divider::after {
+    right: 0;
+  }
+  
+  /* 输出区域样式 */
+  .output-section {
+      width: 680rpx;
+    background-color: #fff;
+    border-radius: 16rpx;
+    padding: 20rpx;
+    margin-bottom: 20rpx;
+    box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  }
+  
+  .output-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15rpx;
+  }
+  
+  .output-title {
+    font-size: 30rpx;
+    font-weight: bold;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10rpx;
+  }
+  
+  .result-status {
+    font-size: 22rpx;
+    padding: 3rpx 15rpx;
+    border-radius: 15rpx;
+  }
+  
+  .result-status.success {
+    background-color: #eaffea;
+    color: #00b42a;
+  }
+  
+  .result-status.error {
+    background-color: #fff2f2;
+    color: #f53f3f;
+  }
+  
+  .copy-btn {
+    background-color: #722ed1;
+    color: #fff;
+    padding: 8rpx 15rpx;
+    font-size: 24rpx;
+    line-height: 1;
+    border-radius: 8rpx;
+    display: flex;
+    align-items: center;
+    gap: 5rpx;
+  }
+  
+  .output-content {
+    width: 100%;
+    min-height: 200rpx;
+    padding: 15rpx;
+    border: 1px solid #eee;
+    border-radius: 10rpx;
+    font-size: 26rpx;
+    line-height: 1.5;
+    color: #333;
+    box-sizing: border-box;
+    overflow-x: auto;
+    background-color: #fafafa;
+  }
+  
+  .output-content pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  .empty-tip {
+    color: #999;
+    text-align: center;
+    padding: 50rpx 0;
+  }
+  
+  .error-message {
+    color: #f53f3f;
+    padding: 20rpx 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  /* 使用说明 */
+  .instructions {
+    background-color: #fff;
+    border-radius: 16rpx;
+    padding: 20rpx;
+    box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  }
+  
+  .instructions-title {
+    font-size: 28rpx;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15rpx;
+    padding-bottom: 10rpx;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .instructions-content {
+    font-size: 24rpx;
+    color: #666;
+  }
+  
+  .instruction-item {
+    margin-bottom: 10rpx;
+    padding-left: 30rpx;
+    position: relative;
+  }
+  
+  .instruction-item::before {
+    content: "•";
+    position: absolute;
+    left: 10rpx;
+    color: #37c2bc;
+  }
+      

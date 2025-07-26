@@ -313,7 +313,7 @@ Page({
             {
                 name: 'ASCII码表中的全部的特殊字符',
                 regex: '[\x21-\x2F\x3A-\x40\x5B-\x60\x7B-\x7E]+'
-            }, /*徐修改！！！！！！！！！！！！！！！！！ */
+            },
             {
                 name: '正整数，不包含0',
                 regex: '^\\+?[1-9]\\d*$'
@@ -352,16 +352,16 @@ Page({
             },
         ],
 
-        pageScrollToBottom: function() {
-            wx.createSelectorQuery().select('#scrollTarget').boundingClientRect(function(rect) {
-              if (rect) {
-                wx.pageScrollTo({
-                  scrollTop: rect.height,
-                  duration: 300 // 可设置滚动动画时长，单位毫秒
-                });
-              }
+        pageScrollToBottom: function () {
+            wx.createSelectorQuery().select('#scrollTarget').boundingClientRect(function (rect) {
+                if (rect) {
+                    wx.pageScrollTo({
+                        scrollTop: rect.height,
+                        duration: 300 // 可设置滚动动画时长，单位毫秒
+                    });
+                }
             }).exec();
-          }
+        }
     },
 
     // 选择常用正则模板
@@ -369,7 +369,10 @@ Page({
         if (this.data.showMoreModal) {
             const index = e.currentTarget.dataset.index;
             const selectedRegex = this.data.moreTemplates[index].regex;
-            console.log({index,selectedRegex});
+            console.log({
+                index,
+                selectedRegex
+            });
             this.setData({
                 regexPattern: selectedRegex,
                 showMoreModal: false
@@ -382,14 +385,14 @@ Page({
         }
     },
 
-    copyregex(){
+    copyregex() {
         wx.setClipboardData({
-            data:this.data.regexPattern,
-            success(res){
+            data: this.data.regexPattern,
+            success(res) {
                 wx.showToast({
-                  title: '已复制',
-                  icon:'success',
-                  duration:1500
+                    title: '已复制',
+                    icon: 'success',
+                    duration: 1500
                 })
             }
         });

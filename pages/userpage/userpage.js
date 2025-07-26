@@ -8,8 +8,7 @@ Page({
             userAvatarUrl: defaultAvatarUrl,
             userNickName: defaultNickname
         },
-        menuList: [
-            {
+        menuList: [{
                 id: 2,
                 text: '关于小程序',
                 url: '/pages/userpage/menupage/about'
@@ -25,9 +24,9 @@ Page({
                 url: '/pages/userpage/menupage/updatelog'
             },
             {
-                id:4,
+                id: 4,
                 text: '用户协议与隐私政策',
-                url:'/pages/userpage/menupage/policy'
+                url: '/pages/userpage/menupage/policy'
             },
             {
                 id: 'share', // 特别标识为分享项
@@ -39,6 +38,13 @@ Page({
 
 
     gotoUsersettingPage() {
+        wx.showToast({
+            title: '设置功能敬请期待',
+            duration: 1000,
+            icon: 'none'
+        });
+        return;
+
         wx.navigateTo({
             url: '/pages/userpage/usersetting',
             fail: function (err) {
@@ -64,13 +70,13 @@ Page({
         wx.showShareMenu({
             withShareTicket: true,
             menus: ['shareAppMessage', 'shareTimeline']
-          }); 
+        });
     },
 
-    onShareTimeline(){
-        return{
-            title:'邀请你一起使用"亿点Tools"',
-            query:"from=pyq"
+    onShareTimeline() {
+        return {
+            title: '邀请你一起使用"亿点Tools"',
+            query: "from=pyq"
         }
     },
 
@@ -81,12 +87,11 @@ Page({
         };
     },
 
-    handleShare(){
+    handleShare() {
         wx.showModal({
             title: '分享提示',
             content: '请点击屏幕右上角的"···"按钮，选择"发送给朋友"',
             showCancel: false
-          });
+        });
     },
 });
-

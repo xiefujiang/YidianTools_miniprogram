@@ -100,3 +100,7 @@ page::before {
     font-size: 30rpx;
     margin-right: 100rpx;
 }
+
+.Setting-btn{
+    font-size: medium;
+}

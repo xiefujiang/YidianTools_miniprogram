@@ -1,2 +1,62 @@
-<!--pages/userpage/menupage/updatelog.wxml-->
-<text>pages/userpage/menupage/updatelog.wxml</text>
+<view class="update-log-container">
+  <!-- 页面头部 -->
+  <view class="page-header">
+    <view class="header-title">更新日志</view>
+    <view class="header-subtitle">记录每一次成长与优化</view>
+  </view>
+
+  <!-- 时间线容器 -->
+  <view class="timeline-container">
+    <!-- 最新版本提示 -->
+    <view class="latest-badge" wx:if="{{updateLogs[0].isLatest}}">
+      当前使用最新版本
+    </view>
+
+    <!-- 版本列表 -->
+    <view class="version-item" wx:for="{{updateLogs}}" wx:key="version">
+      <!-- 时间线节点 -->
+      <view class="timeline-node">
+        <view class="node-dot" style="background-color: {{item.isMajor ? '#ff4d4f' : '#1890ff'}}"></view>
+        <view class="node-line" wx:if="{{index !== updateLogs.length - 1}}"></view>
+      </view>
+
+      <!-- 版本内容 -->
+      <view class="version-content">
+        <!-- 版本信息栏 -->
+        <view class="version-header">
+          <view class="version-info">
+            <text class="version-number">v{{item.version}}</text>
+            <text class="version-date">{{item.date}}</text>
+            <text class="version-type" wx:if="{{item.isMajor}}">重大更新</text>
+          </view>
+          <button 
+            class="copy-btn" 
+            bindtap="copyVersion" 
+            data-version="{{item.version}}"
+          >
+            复制版本号
+          </button>
+        </view>
+
+        <!-- 更新内容列表 -->
+        <view class="update-content">
+          <view class="content-item" wx:for="{{item.updates}}" wx:for-item="update" wx:key="index">
+            <icon 
+              class="update-icon" 
+              type="{{update.type === 'new' ? 'success' : update.type === 'fix' ? 'warn' : 'info'}}" 
+              size="16" 
+              color="{{update.type === 'new' ? '#52c41a' : update.type === 'fix' ? '#faad14' : '#1890ff'}}"
+            />
+            <text class="update-text">{{update.content}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态（当没有更新日志时显示） -->
+  <view class="empty-state" wx:if="{{updateLogs.length === 0}}">
+    <icon type="info" size="60" color="#ccc" />
+    <text class="empty-text">暂无更新日志</text>
+  </view>
+</view>

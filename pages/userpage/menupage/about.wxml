@@ -23,10 +23,7 @@
     
     <view class="info-item">
       <text class="info-label">项目地址:</text>
-      <navigator url="{{githubUrl}}" class="info-value link" target="miniProgram" open-type="navigate">
-        {{githubRepo}}
-        <icon type="right" size="14" color="#666" />
-      </navigator>
+      <text class="info-value" bindtap="openGithub">{{githubRepo}}</text>
     </view>
   </view>
   
